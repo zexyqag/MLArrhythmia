@@ -1,0 +1,280 @@
+Age
+Sex
+Height
+Weight
+QRS duration
+P-R interval
+Q-T interval
+T interval
+P interval
+QRS
+T
+P
+QRST
+J
+Heart rate
+DI Q wave
+DI R wave
+DI S wave
+DI R' wave
+DI S' wave
+DI Number of intrinsic deflections
+DI Existence of ragged R wave
+DI Existence of diphasic derivation of R wave
+DI Existence of ragged P wave
+DI Existence of diphasic derivation of P wave
+DI Existence of ragged T wave
+DI Existence of diphasic derivation of T wave
+DII Q wave
+DII R wave
+DII S wave
+DII R' wave
+DII S' wave
+DII Number of intrinsic deflections
+DII Existence of ragged R wave
+DII Existence of DIIphasic derivation of R wave
+DII Existence of ragged P wave
+DII Existence of DIIphasic derivation of P wave
+DII Existence of ragged T wave
+DII Existence of DIIphasic derivation of T wave
+DIII Q wave
+DIII R wave
+DIII S wave
+DIII R' wave
+DIII S' wave
+DIII Number of intrinsic deflections
+DIII Existence of ragged R wave
+DIII Existence of DIIIphasic derivation of R wave
+DIII Existence of ragged P wave
+DIII Existence of DIIIphasic derivation of P wave
+DIII Existence of ragged T wave
+DIII Existence of DIIIphasic derivation of T wave
+AVR Q wave
+AVR R wave
+AVR S wave
+AVR R' wave
+AVR S' wave
+AVR Number of intrinsic deflections
+AVR Existence of ragged R wave
+AVR Existence of AVRphasic derivation of R wave
+AVR Existence of ragged P wave
+AVR Existence of AVRphasic derivation of P wave
+AVR Existence of ragged T wave
+AVR Existence of AVRphasic derivation of T wave
+AVL Q wave
+AVL R wave
+AVL S wave
+AVL R' wave
+AVL S' wave
+AVL Number of intrinsic deflections
+AVL Existence of ragged R wave
+AVL Existence of AVLphasic derivation of R wave
+AVL Existence of ragged P wave
+AVL Existence of AVLphasic derivation of P wave
+AVL Existence of ragged T wave
+AVL Existence of AVLphasic derivation of T wave
+AVF Q wave
+AVF R wave
+AVF S wave
+AVF R' wave
+AVF S' wave
+AVF Number of intrinsic deflections
+AVF Existence of ragged R wave
+AVF Existence of AVFphasic derivation of R wave
+AVF Existence of ragged P wave
+AVF Existence of AVFphasic derivation of P wave
+AVF Existence of ragged T wave
+AVF Existence of AVFphasic derivation of T wave
+V1 Q wave
+V1 R wave
+V1 S wave
+V1 R' wave
+V1 S' wave
+V1 Number of intrinsic deflections
+V1 Existence of ragged R wave
+V1 Existence of V1phasic derivation of R wave
+V1 Existence of ragged P wave
+V1 Existence of V1phasic derivation of P wave
+V1 Existence of ragged T wave
+V1 Existence of V1phasic derivation of T wave
+V2 Q wave
+V2 R wave
+V2 S wave
+V2 R' wave
+V2 S' wave
+V2 Number of intrinsic deflections
+V2 Existence of ragged R wave
+V2 Existence of V2phasic derivation of R wave
+V2 Existence of ragged P wave
+V2 Existence of V2phasic derivation of P wave
+V2 Existence of ragged T wave
+V2 Existence of V2phasic derivation of T wave
+V3 Q wave
+V3 R wave
+V3 S wave
+V3 R' wave
+V3 S' wave
+V3 Number of intrinsic deflections
+V3 Existence of ragged R wave
+V3 Existence of V3phasic derivation of R wave
+V3 Existence of ragged P wave
+V3 Existence of V3phasic derivation of P wave
+V3 Existence of ragged T wave
+V3 Existence of V3phasic derivation of T wave
+V4 Q wave
+V4 R wave
+V4 S wave
+V4 R' wave
+V4 S' wave
+V4 Number of intrinsic deflections
+V4 Existence of ragged R wave
+V4 Existence of V4phasic derivation of R wave
+V4 Existence of ragged P wave
+V4 Existence of V4phasic derivation of P wave
+V4 Existence of ragged T wave
+V4 Existence of V4phasic derivation of T wave
+V5 Q wave
+V5 R wave
+V5 S wave
+V5 R' wave
+V5 S' wave
+V5 Number of intrinsic deflections
+V5 Existence of ragged R wave
+V5 Existence of V5phasic derivation of R wave
+V5 Existence of ragged P wave
+V5 Existence of V5phasic derivation of P wave
+V5 Existence of ragged T wave
+V5 Existence of V5phasic derivation of T wave
+V6 Q wave
+V6 R wave
+V6 S wave
+V6 R' wave
+V6 S' wave
+V6 Number of intrinsic deflections
+V6 Existence of ragged R wave
+V6 Existence of V6phasic derivation of R wave
+V6 Existence of ragged P wave
+V6 Existence of V6phasic derivation of P wave
+V6 Existence of ragged T wave
+V6 Existence of V6phasic derivation of T wave
+DI JJ wave
+DI Q wave
+DI R wave
+DI S wave
+DI R' wave
+DI S' wave
+DI P wave
+DI T wave
+DI QRSA
+DI QRSTA
+DII JJ wave
+DII Q wave
+DII R wave
+DII S wave
+DII R' wave
+DII S' wave
+DII P wave
+DII T wave
+DII QRSA
+DII QRSTA
+DIII JJ wave
+DIII Q wave
+DIII R wave
+DIII S wave
+DIII R' wave
+DIII S' wave
+DIII P wave
+DIII T wave
+DIII QRSA
+DIII QRSTA
+AVR JJ wave
+AVR Q wave
+AVR R wave
+AVR S wave
+AVR R' wave
+AVR S' wave
+AVR P wave
+AVR T wave
+AVR QRSA
+AVR QRSTA
+AVL JJ wave
+AVL Q wave
+AVL R wave
+AVL S wave
+AVL R' wave
+AVL S' wave
+AVL P wave
+AVL T wave
+AVL QRSA
+AVL QRSTA
+AVF JJ wave
+AVF Q wave
+AVF R wave
+AVF S wave
+AVF R' wave
+AVF S' wave
+AVF P wave
+AVF T wave
+AVF QRSA
+AVF QRSTA
+V1 JJ wave
+V1 Q wave
+V1 R wave
+V1 S wave
+V1 R' wave
+V1 S' wave
+V1 P wave
+V1 T wave
+V1 QRSA
+V1 QRSTA
+V2 JJ wave
+V2 Q wave
+V2 R wave
+V2 S wave
+V2 R' wave
+V2 S' wave
+V2 P wave
+V2 T wave
+V2 QRSA
+V2 QRSTA
+V3 JJ wave
+V3 Q wave
+V3 R wave
+V3 S wave
+V3 R' wave
+V3 S' wave
+V3 P wave
+V3 T wave
+V3 QRSA
+V3 QRSTA
+V4 JJ wave
+V4 Q wave
+V4 R wave
+V4 S wave
+V4 R' wave
+V4 S' wave
+V4 P wave
+V4 T wave
+V4 QRSA
+V4 QRSTA
+V5 JJ wave
+V5 Q wave
+V5 R wave
+V5 S wave
+V5 R' wave
+V5 S' wave
+V5 P wave
+V5 T wave
+V5 QRSA
+V5 QRSTA
+V6 JJ wave
+V6 Q wave
+V6 R wave
+V6 S wave
+V6 R' wave
+V6 S' wave
+V6 P wave
+V6 T wave
+V6 QRSA
+V6 QRSTA
+Class
