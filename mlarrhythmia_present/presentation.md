@@ -123,17 +123,14 @@ Heart rate    0.002212
 def GetDataClean():
     classes, df = GetData()
     df = df.drop('J', axis=1)
+    df = df.fillna(df.median())
     return classes, df
 ```
 </div>
 </div>
 
-
-
 <!--
-As you can see 5 of the attributes contain missing data with J being the worst as 83% of its data is missing. for this reason im gonna drop this column from the data set
-
-
+As you can see 5 of the attributes contain missing data with J being the worst as 83% of its data is missing. for this reason I'm gonna drop this column from the data set, and for the rest I'm going to replace it by their respective median value as median is less susceptible to outliers.
 -->
 
 ---
@@ -142,8 +139,8 @@ As you can see 5 of the attributes contain missing data with J being the worst a
 <div class ="columns">
 <div>
 
-95% - 103 axes
-99% - 154 axes
+95% - 102 axes
+99% - 153 axes
 ![height:425px](variance_plot.png)
 
 
@@ -154,7 +151,6 @@ As you can see 5 of the attributes contain missing data with J being the worst a
 def GetDataPCA(rv = 0):
     #Get the data and fix missing values
     classes, df = GetDataClean()
-    df = df.fillna(df.median())
     data = df.drop("Class", axis=1)
 
     #Scale the data
@@ -185,122 +181,32 @@ print(len(GetDataPCA(0.99)[0].explained_variance_ratio_))
 <!--
 A way to reduce dimensionality of the data is with Principal Component Analysis. The main goal of PCA is to reframe the data to make it easier to separate things out and cluster things, and as a result the resulting axes are also ordered from the most to least useful, and with this we can then reduce the dimensionality by discarding the maybe not so important axes.
 
-Before applying PCA it is a must to standardized the data, so all of the attributes are centered around zero and have a standard deviation of one. This is because PCA is sensitive to the scale of the features, and features on larger scales can dominate the result.
+Before applying PCA it is a must to standardize the data, so all of the attributes are centered around zero and have a standard deviation of one. This is because PCA is sensitive to the scale of the features, and features on larger scales can dominate the result.
 
-By taking the cumulative explained variance and plotting we can se that the first 103 axes explain 95% of the data with 154 explaining 99%
+By taking the cumulative explained variance and plotting we can se that the first 103 axes explain 95% of the data with 154 explaining 99% this means we can drop almost half the number of axes and only loose 1% of the explained variance
 -->
 ---
+# Unsupervised Learning with Clustering Algorithms
 
-## intra/inter Class distances
-
-```python
-df = GetArrhythmiaDataFrame()
-
-# Extract the labels and features from the DataFrame
-labels = df['Class'].values
-features = df.drop('Class', axis=1).values
-
-# Calculate the intra-class distances for each class
-intra_class_dists = {}
-for label in np.unique(labels):
-    class_mask = (labels == label)
-    class_features = features[class_mask]
-    intra_class_dists[label] = np.mean(pdist(class_features))
-
-# Print the average intra-class distances
-print(intra_class_dists)
-
-inter_class_dists = []
-for label_1 in np.unique(labels):
-    for label_2 in np.unique(labels):
-        if label_1 == label_2:
-            continue
-        class_1_mask = (labels == label_1)
-        class_2_mask = (labels == label_2)
-        class_1_features = features[class_1_mask]
-        class_2_features = features[class_2_mask]
-        combined_features = np.concatenate((class_1_features, class_2_features))
-        inter_class_dists.append(np.min(pdist(combined_features)))
-
-# Print the minimum inter-class distance
-print(np.min(inter_class_dists))
-```
+<!--
+KMeans is an unsupervised learning algorithm that divides a set of data points into clusters based on the similarity of their features. It does this by trying to minimize the sum of the distances between the data points and the centroids (i.e., the center points) of the clusters.
+-->
 ---
+# Supervised Learning with Support Vector Machines
 
-<div class ="columns">
-<div>
-
-## Intra-Class distance
-<div class ="columns">
-<div>
-
-1. 227
-2. 323
-3. 332
-4. 229
-5. 367
-6. 233
-7. 294
-8. 362
-
-</div>
-<div>
-
-9. 482
-10. 282
-11. n/a
-12. n/a
-13. n/a
-14. 305
-15. 266
-16. 304
-
-</div>
-</div>
-
-</div>
-<div>
-
-## Inter-class distance
-- count 156
-- mean 117
-- median 113
-- std 42
-- min 74
-- max 262
-
-</div>
-</div>
+<!--
+SVMs, on the other hand, are a type of linear model that can be used for classification and regression tasks. They work by finding the hyperplane in a high-dimensional space that maximally separates the different classes. In the case of classification tasks, the goal is to find the hyperplane that maximally separates the different classes, while in the case of regression tasks, the goal is to find the hyperplane that best fits the data.
+-->
 
 ---
+# Machine learning with a Convolutional Neural Networks
 
-## Quadratic
+<!--
 
-```python
-#Get the DataFrame
-df = GetArrhythmiaDataFrame()
-
-data = df.drop("Class", axis=1)
-lables = df.loc[:,"Class"]
-
-#Normalize data to alleviate features scale affecting the results
-data_normalized = scale(data)
-
-X_train, X_test, y_train, y_test = train_test_split(data_normalized, lables, test_size=0.2)
-
-#Apply PCA
-pca = PCA(0.95)
-X_train_reduced = pca.fit_transform(X_train)
-X_test_reduced = pca.transform(X_test)
-print(pca.n_components_)
-
-clf = SVC(kernel='poly', degree=2)
-clf.fit(X_train, y_train)
-accuracy = clf.score(X_test, y_test)
-print(accuracy)
-```
+-->
 ---
+# Conclusion
 
-95% of retained variance
-Components: 93
-accuracy: 63%
+<!--
+I aint no data sientist
+-->

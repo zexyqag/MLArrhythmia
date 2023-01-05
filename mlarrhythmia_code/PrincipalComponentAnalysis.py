@@ -2,13 +2,12 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
 import seaborn as sns
-from dataImport import *
+from DataImport import *
 from SeabornTheme import *
 
 def GetDataPCA(rv = 0):
     #Get the data and fix missing values
     classes, df = GetDataClean()
-    df = df.fillna(df.median())
     data = df.drop("Class", axis=1)
 
     #Scale the data
@@ -28,10 +27,10 @@ def GetDataPCA(rv = 0):
     return classes, pca, df_transformed
 
 if __name__ == "__main__":
-    print(len(GetDataPCA(0.95)[0].explained_variance_ratio_))
-    print(len(GetDataPCA(0.99)[0].explained_variance_ratio_))
+    print(len(GetDataPCA(0.95)[1].explained_variance_ratio_))
+    print(len(GetDataPCA(0.99)[1].explained_variance_ratio_))
 
-    pca, _ = GetDataPCA()
+    _, pca, _ = GetDataPCA()
 
     #Plot the data
     explained_variance = pca.explained_variance_ratio_

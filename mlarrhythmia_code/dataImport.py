@@ -1,5 +1,6 @@
 import pandas as pd
-import numpy as np
+import matplotlib.pyplot as plt
+from SeabornTheme import *
 
 def GetData():
     url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/arrhythmia/arrhythmia.data'
@@ -11,6 +12,7 @@ def GetData():
 def GetDataClean():
     classes, df = GetData()
     df = df.drop('J', axis=1)
+    df = df.fillna(df.median())
     return classes, df
 
 if __name__ == "__main__":
@@ -20,3 +22,10 @@ if __name__ == "__main__":
     percent_missing = missing / len(df)
     percent_missing_nonzero = percent_missing[percent_missing > 0]
     print(percent_missing_nonzero)
+
+    setTheme()
+    class_counts = df["Class"].value_counts()
+    sns.barplot(x = class_counts.index, y = class_counts.values)
+    plt.xlabel('Class')
+    plt.ylabel('Number of instances')
+    plt.savefig('mlarrhythmia_present/class_distribution.png', format='png')
