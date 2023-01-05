@@ -3,12 +3,10 @@ from sklearn.metrics import classification_report, confusion_matrix
 from sklearn.model_selection import train_test_split
 from PrincipalComponentAnalysis import GetDataPCA
 
-classes, _, data = GetDataPCA(0.99)
-
-data['Class'] = data['Class'].apply(lambda x: 1 if x > 1 else 0)
+_, _, data = GetDataPCA(0.99)
+#data['Class'] = data['Class'].apply(lambda x: 1 if x > 1 else 0)
 X = data.drop('Class', axis=1)
 y = data['Class']
-
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
 kernals = ['linear', 'poly', 'rbf', 'sigmoid']
@@ -16,10 +14,8 @@ for ker in kernals:
     model = svm.SVC(kernel=ker)
     model.fit(X_train, y_train)
     y_pred = model.predict(X_test)
-
-    confusion_mat = confusion_matrix(y_test, y_pred)
-    
-    print(confusion_matrix(y_test, y_pred))
+    #print(confusion_matrix(y_test, y_pred))
+    print(ker)
     print(classification_report(y_test, y_pred))
 
 '''

@@ -186,27 +186,159 @@ Before applying PCA it is a must to standardize the data, so all of the attribut
 By taking the cumulative explained variance and plotting we can se that the first 103 axes explain 95% of the data with 154 explaining 99% this means we can drop almost half the number of axes and only loose 1% of the explained variance
 -->
 ---
-# Unsupervised Learning with Clustering Algorithms
+# Support Vector Machines
 
-<!--
-KMeans is an unsupervised learning algorithm that divides a set of data points into clusters based on the similarity of their features. It does this by trying to minimize the sum of the distances between the data points and the centroids (i.e., the center points) of the clusters.
--->
+```python 
+_, _, data = GetDataPCA(0.99)
+data['Class'] = data['Class'].apply(lambda x: 1 if x > 1 else 0)
+X = data.drop('Class', axis=1)
+y = data['Class']
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+kernals = ['linear', 'poly', 'rbf', 'sigmoid']
+for ker in kernals:
+    model = svm.SVC(kernel=ker)
+    model.fit(X_train, y_train)
+    y_pred = model.predict(X_test)
+    print(classification_report(y_test, y_pred))
+```
+
+
 ---
-# Supervised Learning with Support Vector Machines
+
+<style scoped>section {}.columns{font-size: 20px;} </style>
+
+<div class ="columns">
+<div>
+
+| linear       | precision | recall | f1-score | support |
+|--------------|-----------|--------|----------|---------|
+| 0            | 0.70      | 0.69   | 0.69     | 51      |
+| 1            | 0.61      | 0.62   | 0.62     | 40      |
+| accuracy     |           |        | 0.66     | 91      |
+| macro avg    | 0.65      | 0.66   | 0.66     | 91      |
+| weighted avg | 0.66      | 0.66   | 0.66     | 91      |
+</div>
+<div>
+
+| poly         | precision | recall | f1-score | support |
+|--------------|-----------|--------|----------|---------|
+| 0            | 0.62      | 0.94   | 0.74     | 51      |
+| 1            | 0.77      | 0.25   | 0.38     | 40      |
+| accuracy     |           |        | 0.64     | 91      |
+| macro avg    | 0.69      | 0.60   | 0.56     | 91      |
+| weighted avg | 0.68      | 0.64   | 0.58     | 91      |
+</div>
+</div>
+
+<div class ="columns">
+<div>
+
+| rbf          | precision | recall | f1-score | support |
+|--------------|-----------|--------|----------|---------|
+| 0            | 0.81      | 0.82   | 0.82     | 51      |
+| 1            | 0.77      | 0.75   | 0.76     | 40      |
+| accuracy     |           |        | 0.79     | 91      |
+| macro avg    | 0.79      | 0.79   | 0.79     | 91      |
+| weighted avg | 0.79      | 0.79   | 0.79     | 91      |
+</div>
+<div>
+
+| sigmoid      | precision | recall | f1-score | support |
+|--------------|-----------|--------|----------|---------|
+| 0            | 0.81      | 0.86   | 0.84     | 51      |
+| 1            | 0.81      | 0.75   | 0.78     | 40      |
+| accuracy     |           |        | 0.81     | 91      |
+| macro avg    | 0.81      | 0.81   | 0.81     | 91      |
+| weighted avg | 0.81      | 0.81   | 0.81     | 91      |
+</div>
+</div>
 
 <!--
 SVMs, on the other hand, are a type of linear model that can be used for classification and regression tasks. They work by finding the hyperplane in a high-dimensional space that maximally separates the different classes. In the case of classification tasks, the goal is to find the hyperplane that maximally separates the different classes, while in the case of regression tasks, the goal is to find the hyperplane that best fits the data.
 -->
-
 ---
-# Machine learning with a Convolutional Neural Networks
+```
+           linear  precision recall    f1-score   support
 
-<!--
+           1       0.79      0.88      0.83        51
+           2       0.83      0.50      0.62        10
+           3       0.67      1.00      0.80         2
+           4       0.50      1.00      0.67         1
+           5       0.50      0.50      0.50         2
+           6       0.75      0.43      0.55         7
+           7       0.00      0.00      0.00         1
+           8       0.00      0.00      0.00         1
+           9       1.00      1.00      1.00         1
+          10       0.73      0.67      0.70        12
+          14       0.00      0.00      0.00         1
+          16       0.00      0.00      0.00         2
 
--->
+    accuracy                           0.73        91
+   macro avg       0.48      0.50      0.47        91
+weighted avg       0.73      0.73      0.72        91
+```
 ---
-# Conclusion
+```
+           poly    precision recall    f1-score   support
 
-<!--
-I aint no data sientist
--->
+           1       0.58      1.00      0.73        51
+           2       0.00      0.00      0.00        10
+           3       1.00      1.00      1.00         2
+           4       0.00      0.00      0.00         1
+           5       0.00      0.00      0.00         2
+           6       0.00      0.00      0.00         7
+           7       0.00      0.00      0.00         1
+           8       0.00      0.00      0.00         1
+           9       1.00      1.00      1.00         1
+          10       0.00      0.00      0.00        12
+          14       0.00      0.00      0.00         1
+          16       0.00      0.00      0.00         2
+
+    accuracy                           0.59        91
+   macro avg       0.21      0.25      0.23        91
+weighted avg       0.36      0.59      0.44        91
+```
+---
+```
+           rbf     precision recall    f1-score   support
+
+           1       0.63      1.00      0.77        51
+           2       1.00      0.40      0.57        10
+           3       1.00      1.00      1.00         2
+           4       1.00      1.00      1.00         1
+           5       0.00      0.00      0.00         2
+           6       0.00      0.00      0.00         7
+           7       0.00      0.00      0.00         1
+           8       0.00      0.00      0.00         1
+           9       0.00      0.00      0.00         1
+          10       1.00      0.25      0.40        12
+          14       0.00      0.00      0.00         1
+          16       0.00      0.00      0.00         2
+
+    accuracy                           0.67        91
+   macro avg       0.39      0.30      0.31        91
+weighted avg       0.63      0.67      0.58        91
+```
+---
+```
+           sigmoid precision recall    f1-score   support
+
+           1       0.70      1.00      0.82        51
+           2       1.00      0.60      0.75        10
+           3       0.67      1.00      0.80         2
+           4       1.00      1.00      1.00         1
+           5       0.00      0.00      0.00         2
+           6       0.00      0.00      0.00         7
+           7       0.00      0.00      0.00         1
+           8       0.00      0.00      0.00         1
+           9       1.00      1.00      1.00         1
+          10       0.86      0.50      0.63        12
+          14       0.00      0.00      0.00         1
+          16       0.00      0.00      0.00         2
+
+    accuracy                           0.74        91
+   macro avg       0.44      0.42      0.42        91
+weighted avg       0.65      0.74      0.67        91
+```
+
